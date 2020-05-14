@@ -10,32 +10,46 @@ function App() {
   }
 
   function addItem() {
-    setListItems((item) => [...item, input]);
-    setInput('');
+    if (input !== '') {
+      setListItems((item) => [...item, input]);
+      setInput('');
+    }
+  }
+
+  function clearList() {
+    setListItems([]);
   }
 
   return (
-    <div className="container">
-      <div className="heading">
-        <h1>Execution</h1>
-      </div>
-      <div className="form">
-        <input onChange={listInput} value={input} type="text" />
-        <button onClick={addItem}>
-          <span>Execute</span>
-        </button>
-      </div>
-      <div>
-        <ul>
-          {listItems.map((listItem) => (
-            <li>{listItem}</li>
-          ))}
-        </ul>
-      </div>
-      <div className="clear-btn-container">
-        <button onClick={addItem}>
-          <span>Clear List</span>
-        </button>
+    <div className="main-container">
+      <div className="container">
+        <div className="quote">
+          <h1>
+            "Strategy is a Commodity, EXECUTION is an Art." <br></br>
+            -Peter F. Drucker
+          </h1>
+        </div>
+        <div className="heading">
+          <h1>Execution List</h1>
+        </div>
+        <div className="form">
+          <input onChange={listInput} value={input} type="text" />
+          <button onClick={addItem}>
+            <span>Add</span>
+          </button>
+        </div>
+        <div>
+          <ul>
+            {listItems.map((listItem) => (
+              <li>{listItem}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="clear-btn-container">
+          <button onClick={clearList}>
+            <span>Clear List</span>
+          </button>
+        </div>
       </div>
     </div>
   );

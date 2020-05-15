@@ -1,29 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function ExecuteItem(props) {
-  const [mouseOn, setMouseOn] = useState(false);
-
-  function highlightButton() {
-    setMouseOn((state) => !state);
-  }
-
-  function unHighlightButton() {
-    setMouseOn((state) => !state);
-  }
-
   return (
     <li
       onClick={() => {
         props.onExecuted(props.id);
       }}
-      onMouseOver={highlightButton}
-      onMouseLeave={unHighlightButton}
+      onMouseOver={props.onMouseOver}
+      onMouseOut={props.onMouseOut}
     >
-      <button
-        className={
-          mouseOn ? 'delete-btn highlight-btn' : 'delete-btn unhightlight-btn'
-        }
-      ></button>
+      <button className={props.highlightBtn()}></button>
       {props.execute}
     </li>
   );

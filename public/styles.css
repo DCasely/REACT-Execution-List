@@ -122,6 +122,14 @@ li:last-of-type {
   background-color: orange;
 }
 
+.highlight-btn {
+  background-color: orange;
+}
+
+.unhighlight-btn {
+  background-color: transparent;
+}
+
 .button-highlight {
   background-color: orange;
 }

@@ -24,6 +24,12 @@ function App() {
     }
   }
 
+  function deleteItem(id) {
+    setListItems((prevItems) => {
+      return prevItems.filter((items, index) => index !== id);
+    });
+  }
+
   function clearList() {
     setListItems([]);
   }
@@ -40,8 +46,13 @@ function App() {
         </div>
         <div>
           <ul>
-            {listItems.map((listItem) => (
-              <ExecuteItem execute={listItem} />
+            {listItems.map((listItem, index) => (
+              <ExecuteItem
+                key={index}
+                id={index}
+                execute={listItem}
+                onExecuted={deleteItem}
+              />
             ))}
           </ul>
         </div>

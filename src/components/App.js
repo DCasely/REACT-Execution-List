@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ExecuteItem from './ExecuteItem';
 
 function App() {
   const [input, setInput] = useState('');
@@ -20,11 +21,6 @@ function App() {
       setListItems((item) => [...item, input]);
       setInput('');
     }
-  }
-
-  function removeItem(e) {
-    listItems.shift();
-    setListItems((item) => [...item]);
   }
 
   function clearList() {
@@ -52,10 +48,7 @@ function App() {
         <div>
           <ul>
             {listItems.map((listItem) => (
-              <li name={listItem} onClick={removeItem}>
-                <button className="delete-btn"></button>
-                {listItem}
-              </li>
+              <ExecuteItem execute={listItem} />
             ))}
           </ul>
         </div>

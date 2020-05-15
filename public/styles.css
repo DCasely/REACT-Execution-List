@@ -93,6 +93,16 @@ li {
   border-bottom: 3px solid orange;
 }
 
+li:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.list-strikethrough {
+  text-decoration: line-through;
+  color: orange;
+}
+
 li:last-of-type {
   margin-bottom: 5rem;
 }
@@ -109,6 +119,10 @@ li:last-of-type {
 
 .delete-btn:hover {
   cursor: pointer;
+  background-color: orange;
+}
+
+.button-highlight {
   background-color: orange;
 }
 

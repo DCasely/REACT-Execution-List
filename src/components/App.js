@@ -5,11 +5,12 @@ import ExecuteItem from './ExecuteItem';
 function App() {
   const [input, setInput] = useState('');
   const [listItems, setListItems] = useState([
-    'LIST ITEM ONE',
-    'LIST ITEM TWO',
-    'LIST ITEM THREE',
-    'LIST ITEM FOUR',
-    'LIST ITEM FIVE',
+    '*** DRUCKERS KEYS TO EFFECTIVENESS *** ',
+    'What needs to be done?',
+    'What is right for the enterprise?',
+    'Develop Action Plans',
+    'Focus on Opportunities rather than problems',
+    "Think 'WE' rather than 'I'",
   ]);
 
   function listInput(e) {

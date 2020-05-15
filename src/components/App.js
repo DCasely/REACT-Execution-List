@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 
 function App() {
   const [input, setInput] = useState('');
-  const [listItems, setListItems] = useState([]);
+  const [listItems, setListItems] = useState([
+    'LIST ITEM ONE',
+    'LIST ITEM TWO',
+    'LIST ITEM THREE',
+    'LIST ITEM FOUR',
+    'LIST ITEM FIVE',
+  ]);
 
   function listInput(e) {
     const data = e.target.value;
@@ -14,6 +20,11 @@ function App() {
       setListItems((item) => [...item, input]);
       setInput('');
     }
+  }
+
+  function removeItem(e) {
+    listItems.shift();
+    setListItems((item) => [...item]);
   }
 
   function clearList() {
@@ -35,13 +46,16 @@ function App() {
         <div className="form">
           <input onChange={listInput} value={input} type="text" />
           <button onClick={addItem}>
-            <span>Add</span>
+            <span>Enter</span>
           </button>
         </div>
         <div>
           <ul>
             {listItems.map((listItem) => (
-              <li>{listItem}</li>
+              <li name={listItem} onClick={removeItem}>
+                <button className="delete-btn"></button>
+                {listItem}
+              </li>
             ))}
           </ul>
         </div>

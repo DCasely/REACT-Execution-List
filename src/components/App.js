@@ -11,7 +11,6 @@ function App() {
     'LIST ITEM FOUR',
     'LIST ITEM FIVE',
   ]);
-  const [mouseOn, setMouseOn] = useState(false);
 
   function listInput(e) {
     const data = e.target.value;
@@ -31,19 +30,8 @@ function App() {
     });
   }
 
-  function highlightButton() {
-    setMouseOn((state) => !state);
-  }
-  function unHighlightButton() {
-    setMouseOn((state) => !state);
-  }
-
   function clearList() {
     setListItems([]);
-  }
-
-  function highlight() {
-    return mouseOn ? 'delete-btn highlight-btn' : 'delete-btn unhightlight-btn';
   }
 
   return (
@@ -62,11 +50,8 @@ function App() {
               <ExecuteItem
                 key={index}
                 id={index}
-                onMouseOver={highlightButton}
-                onMouseOut={unHighlightButton}
                 execute={listItem}
                 onExecuted={deleteItem}
-                highlightBtn={highlight}
               />
             ))}
           </ul>

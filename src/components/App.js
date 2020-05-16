@@ -1,27 +1,15 @@
 import React, { useState } from 'react';
 import Heading from './Heading';
+import Input from './Input';
 import ExecuteItem from './ExecuteItem';
+import ClearList from './ClearList';
 
 function App() {
-  const [input, setInput] = useState('');
-  const [listItems, setListItems] = useState([
-    '*** DRUCKERS KEYS TO EFFECTIVENESS *** ',
-    'What needs to be done?',
-    'What is right for the enterprise?',
-    'Develop Action Plans',
-    'Focus on Opportunities rather than problems',
-    "Think 'WE' rather than 'I'",
-  ]);
+  const [listItems, setListItems] = useState([]);
 
-  function listInput(e) {
-    const data = e.target.value;
-    setInput(data);
-  }
-
-  function addItem() {
+  function addItem(input) {
     if (input !== '') {
       setListItems((item) => [...item, input]);
-      setInput('');
     }
   }
 
@@ -35,15 +23,23 @@ function App() {
     setListItems([]);
   }
 
+  function loadDrucker() {
+    setListItems([
+      '*** DRUCKERS KEYS TO EFFECTIVENESS *** ',
+      'What needs to be done?',
+      'What is right for the enterprise?',
+      'Develop Action Plans',
+      'Focus on Opportunities rather than problems',
+      "Think 'WE' rather than 'I'",
+    ]);
+  }
+
   return (
     <div className="main-container">
       <div className="container">
         <Heading />
         <div className="form">
-          <input onChange={listInput} value={input} type="text" />
-          <button onClick={addItem}>
-            <span>Enter</span>
-          </button>
+          <Input getInput={addItem} />
         </div>
         <div>
           <ul>
@@ -57,11 +53,7 @@ function App() {
             ))}
           </ul>
         </div>
-        <div className="clear-btn-container">
-          <button onClick={clearList}>
-            <span>Clear List</span>
-          </button>
-        </div>
+        <ClearList clearList={clearList} loadDrucker={loadDrucker} />
       </div>
     </div>
   );
